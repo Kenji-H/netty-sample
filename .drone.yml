@@ -3,3 +3,9 @@ pipeline:
     image: java:7
     commands:
       java -version
+  slack:
+    image: plugins/slack
+    channel: dev
+    secrets: [ slack_webhook ]
+    when:
+      status: [ success, failure ]
