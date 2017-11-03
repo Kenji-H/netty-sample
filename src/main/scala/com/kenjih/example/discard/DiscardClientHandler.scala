@@ -1,12 +1,17 @@
 package com.kenjih.example.discard
 
 import io.netty.buffer.ByteBuf
-import io.netty.channel.{ChannelFuture, ChannelFutureListener, ChannelHandlerContext, SimpleChannelInboundHandler}
+import io.netty.channel.{
+  ChannelFuture,
+  ChannelFutureListener,
+  ChannelHandlerContext,
+  SimpleChannelInboundHandler
+}
 
 class DiscardClientHandler extends SimpleChannelInboundHandler[Any] {
-  private var content:ByteBuf = _
-  private var ctx:ChannelHandlerContext = _
-  private var counter: Long = _
+  private var content: ByteBuf           = _
+  private var ctx: ChannelHandlerContext = _
+  private var counter: Long              = _
 
   override def channelActive(ctx: ChannelHandlerContext) = {
     this.ctx = ctx

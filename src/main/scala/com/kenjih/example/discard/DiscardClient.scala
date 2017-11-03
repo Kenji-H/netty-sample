@@ -7,9 +7,9 @@ import io.netty.channel.socket.SocketChannel
 import io.netty.channel.socket.nio.NioSocketChannel
 
 object DiscardClient {
-  private [discard] final val HOST = "127.0.0.1"
-  private [discard] final val PORT = 8009
-  private [discard] final val SIZE = 32
+  private[discard] final val HOST = "127.0.0.1"
+  private[discard] final val PORT = 8009
+  private[discard] final val SIZE = 32
 
   def main(args: Array[String]): Unit = {
     val group = new NioEventLoopGroup()

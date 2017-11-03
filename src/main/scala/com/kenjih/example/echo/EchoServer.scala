@@ -9,10 +9,10 @@ import io.netty.handler.logging.{LogLevel, LoggingHandler}
 
 object EchoServer {
 
-  private [echo] final val PORT = 8007
+  private[echo] final val PORT = 8007
 
   def main(args: Array[String]): Unit = {
-    val bossGroup = new NioEventLoopGroup(1)
+    val bossGroup   = new NioEventLoopGroup(1)
     val workerGroup = new NioEventLoopGroup()
     try {
       val b = new ServerBootstrap()
@@ -28,7 +28,7 @@ object EchoServer {
         })
       val f = b.bind(PORT).sync()
       f.channel().closeFuture().sync()
-    } finally  {
+    } finally {
       bossGroup.shutdownGracefully()
       workerGroup.shutdownGracefully()
     }

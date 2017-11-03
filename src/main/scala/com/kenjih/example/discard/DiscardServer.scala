@@ -8,10 +8,10 @@ import io.netty.channel.socket.nio.NioServerSocketChannel
 import io.netty.handler.logging.{LogLevel, LoggingHandler}
 
 object DiscardServer {
-  private [discard] final val PORT = 8009
+  private[discard] final val PORT = 8009
 
   def main(args: Array[String]): Unit = {
-    val bossGroup = new NioEventLoopGroup(1)
+    val bossGroup   = new NioEventLoopGroup(1)
     val workerGroup = new NioEventLoopGroup()
 
     try {
