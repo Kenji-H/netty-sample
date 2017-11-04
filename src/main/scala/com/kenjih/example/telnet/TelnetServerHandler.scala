@@ -23,7 +23,7 @@ class TelnetServerHandler extends SimpleChannelInboundHandler[String] {
           close = true
           "Have a good day!\r\n"
         } else {
-          s"Did you say '${request}'?\r\n"
+          s"Did you say '$request'?\r\n"
         }
       }
     val future = ctx.write(response)

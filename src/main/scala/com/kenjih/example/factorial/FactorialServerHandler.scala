@@ -15,7 +15,7 @@ class FactorialServerHandler extends SimpleChannelInboundHandler[BigInteger] {
   }
 
   override def channelInactive(ctx: ChannelHandlerContext): Unit = {
-    println(s"Factorial of ${lastMultiplier} is ${factorial}")
+    println(s"Factorial of $lastMultiplier is $factorial")
   }
 
   override def exceptionCaught(ctx: ChannelHandlerContext, cause: Throwable): Unit = {

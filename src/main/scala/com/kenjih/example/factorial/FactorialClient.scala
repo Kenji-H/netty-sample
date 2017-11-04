@@ -16,10 +16,9 @@ object FactorialClient {
         .group(group)
         .channel(classOf[NioSocketChannel])
         .handler(new FactorialClientInitializer())
-
       val f       = b.connect(HOST, PORT).sync()
       val handler = f.channel.pipeline.last().asInstanceOf[FactorialClientHandler]
-      println(s"Factorial of ${COUNT} is ${handler.getFactorial()}")
+      println(s"Factorial of $COUNT is ${handler.getFactorial()}")
     } finally {
       group.shutdownGracefully()
     }

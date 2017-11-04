@@ -16,7 +16,7 @@ class BigIntegerDecoder extends ByteToMessageDecoder {
 
     in.readUnsignedByte match {
       case 'F'         =>
-      case magicNumber => throw new CorruptedFrameException(s"Invalid magic number: ${magicNumber}")
+      case magicNumber => throw new CorruptedFrameException(s"Invalid magic number: $magicNumber")
     }
 
     val dataLength = in.readInt()
