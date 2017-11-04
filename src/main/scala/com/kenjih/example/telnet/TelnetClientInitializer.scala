@@ -7,7 +7,7 @@ import io.netty.handler.codec.string.{StringDecoder, StringEncoder}
 
 class TelnetClientInitializer extends ChannelInitializer[SocketChannel] {
   override def initChannel(ch: SocketChannel): Unit = {
-    val pipeline = ch.pipeline()
+    val pipeline = ch.pipeline
     pipeline.addLast(new DelimiterBasedFrameDecoder(8192, Delimiters.lineDelimiter: _*))
     pipeline.addLast(TelnetClientInitializer.DECODER)
     pipeline.addLast(TelnetClientInitializer.ENCODER)

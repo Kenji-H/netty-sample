@@ -22,7 +22,7 @@ object DiscardServer {
         .handler(new LoggingHandler(LogLevel.INFO))
         .childHandler(new ChannelInitializer[SocketChannel] {
           override def initChannel(ch: SocketChannel): Unit = {
-            val p = ch.pipeline()
+            val p = ch.pipeline
             p.addLast(new DiscardServerHandler())
           }
         })

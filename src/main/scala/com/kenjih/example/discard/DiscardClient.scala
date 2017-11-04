@@ -19,7 +19,7 @@ object DiscardClient {
         .channel(classOf[NioSocketChannel])
         .handler(new ChannelInitializer[SocketChannel] {
           override def initChannel(ch: SocketChannel) = {
-            val p = ch.pipeline()
+            val p = ch.pipeline
             p.addLast(new DiscardClientHandler())
           }
         })
