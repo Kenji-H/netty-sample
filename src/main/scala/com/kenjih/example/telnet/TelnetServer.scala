@@ -17,7 +17,11 @@ object TelnetServer {
         .channel(classOf[NioServerSocketChannel])
         .handler(new LoggingHandler(LogLevel.INFO))
         .childHandler(new TelnetServerInitializer())
-      b.bind(PORT).sync().channel.closeFuture.sync()
+        .bind(PORT)
+        .sync()
+        .channel
+        .closeFuture
+        .sync()
     } finally {
       bossGroup.shutdownGracefully()
       workerGroup.shutdownGracefully()

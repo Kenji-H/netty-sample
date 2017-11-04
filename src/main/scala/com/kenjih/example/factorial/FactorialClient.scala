@@ -13,7 +13,7 @@ object FactorialClient {
     val group = new NioEventLoopGroup()
     try {
       val b = new Bootstrap()
-        .group(group)
+      b.group(group)
         .channel(classOf[NioSocketChannel])
         .handler(new FactorialClientInitializer())
       val f       = b.connect(HOST, PORT).sync()

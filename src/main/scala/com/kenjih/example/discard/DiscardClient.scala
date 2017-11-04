@@ -23,8 +23,11 @@ object DiscardClient {
             p.addLast(new DiscardClientHandler())
           }
         })
-      val f = b.connect(HOST, PORT).sync()
-      f.channel.closeFuture.sync()
+        .connect(HOST, PORT)
+        .sync()
+        .channel
+        .closeFuture
+        .sync()
     } finally {
       group.shutdownGracefully()
     }

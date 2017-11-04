@@ -17,8 +17,11 @@ object FactorialServer {
         .channel(classOf[NioServerSocketChannel])
         .handler(new LoggingHandler(LogLevel.INFO))
         .childHandler(new FactorialServerInitializer)
-
-      b.bind(PORT).sync().channel.closeFuture.sync()
+        .bind(PORT)
+        .sync()
+        .channel
+        .closeFuture
+        .sync()
     } finally {
       bossGroup.shutdownGracefully()
       workerGroup.shutdownGracefully()

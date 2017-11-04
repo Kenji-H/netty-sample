@@ -26,8 +26,11 @@ object EchoServer {
             p.addLast(new EchoServerHandler())
           }
         })
-      val f = b.bind(PORT).sync()
-      f.channel.closeFuture.sync()
+        .bind(PORT)
+        .sync()
+        .channel
+        .closeFuture
+        .sync()
     } finally {
       bossGroup.shutdownGracefully()
       workerGroup.shutdownGracefully()

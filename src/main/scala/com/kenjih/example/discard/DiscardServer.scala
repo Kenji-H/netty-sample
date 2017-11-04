@@ -26,9 +26,11 @@ object DiscardServer {
             p.addLast(new DiscardServerHandler())
           }
         })
-
-      val f = b.bind(PORT).sync()
-      f.channel.closeFuture.sync()
+        .bind(PORT)
+        .sync()
+        .channel
+        .closeFuture
+        .sync()
     } finally {
       workerGroup.shutdownGracefully()
       bossGroup.shutdownGracefully()
