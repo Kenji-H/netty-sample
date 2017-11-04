@@ -8,10 +8,11 @@ import io.netty.handler.codec.MessageToByteEncoder
 
 class NumberEncoder extends MessageToByteEncoder[Number] {
   override def encode(ctx: ChannelHandlerContext, msg: Number, out: ByteBuf): Unit = {
-    val v =
-      if (msg.isInstanceOf[BigInteger]) msg.asInstanceOf[BigInteger]
-      else new BigInteger(String.valueOf(msg))
-    val data = v.toByteArray()
+    val v = msg match {
+      case i: BigInteger => msg.asInstanceOf[BigInteger]
+      case _             => new BigInteger(String.valueOf(msg))
+    }
+    val data = v.toByteArray
     out.writeByte('F'.asInstanceOf[Byte])
     out.writeInt(data.length)
     out.writeBytes(data)
