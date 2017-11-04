@@ -27,7 +27,7 @@ object EchoServer {
           }
         })
       val f = b.bind(PORT).sync()
-      f.channel().closeFuture().sync()
+      f.channel.closeFuture().sync()
     } finally {
       bossGroup.shutdownGracefully()
       workerGroup.shutdownGracefully()

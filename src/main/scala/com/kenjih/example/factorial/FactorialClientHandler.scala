@@ -29,8 +29,7 @@ class FactorialClientHandler extends SimpleChannelInboundHandler[BigInteger] {
   override def channelRead0(ctx: ChannelHandlerContext, msg: BigInteger): Unit = {
     receivedMessages += 1
     if (receivedMessages == FactorialClient.COUNT) {
-      ctx
-        .channel()
+      ctx.channel
         .close()
         .addListener(new ChannelFutureListener {
           override def operationComplete(future: ChannelFuture): Unit = {
@@ -67,7 +66,7 @@ class FactorialClientHandler extends SimpleChannelInboundHandler[BigInteger] {
       case true => sendNumbers()
       case _ => {
         future.cause().printStackTrace()
-        future.channel().close()
+        future.channel.close()
       }
     }
   }

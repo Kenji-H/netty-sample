@@ -21,7 +21,7 @@ object TelnetClient {
         .channel(classOf[NioSocketChannel])
         .handler(new TelnetClientInitializer())
 
-      val ch                             = b.connect(HOST, PORT).sync().channel()
+      val ch                             = b.connect(HOST, PORT).sync().channel
       var lastWriteFuture: ChannelFuture = null
       val in                             = new BufferedReader(new InputStreamReader(System.in))
 

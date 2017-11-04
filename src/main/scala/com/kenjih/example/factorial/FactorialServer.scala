@@ -18,7 +18,7 @@ object FactorialServer {
         .handler(new LoggingHandler(LogLevel.INFO))
         .childHandler(new FactorialServerInitializer)
 
-      b.bind(PORT).sync().channel().closeFuture().sync()
+      b.bind(PORT).sync().channel.closeFuture().sync()
     } finally {
       bossGroup.shutdownGracefully()
       workerGroup.shutdownGracefully()
