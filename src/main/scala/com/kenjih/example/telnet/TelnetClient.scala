@@ -33,7 +33,7 @@ object TelnetClient {
             breaks.break()
           lastWriteFuture = ch.writeAndFlush(line + "\r\n")
           if ("bye".equals(line.toLowerCase())) {
-            ch.closeFuture().sync()
+            ch.closeFuture.sync()
             breaks.break()
           }
         }

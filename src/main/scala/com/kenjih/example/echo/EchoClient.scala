@@ -26,7 +26,7 @@ object EchoClient {
         })
 
       val f = b.connect(HOST, PORT).sync()
-      f.channel.closeFuture().sync()
+      f.channel.closeFuture.sync()
     } finally {
       group.shutdownGracefully()
     }
