@@ -41,7 +41,7 @@ class DiscardClientHandler extends SimpleChannelInboundHandler[Any] {
       if (future.isSuccess) {
         generateTraffic()
       } else {
-        future.cause().printStackTrace()
+        future.cause.printStackTrace()
         future.channel.close()
       }
     }

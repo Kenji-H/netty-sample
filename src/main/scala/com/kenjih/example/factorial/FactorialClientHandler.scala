@@ -66,7 +66,7 @@ class FactorialClientHandler extends SimpleChannelInboundHandler[BigInteger] {
       if (future.isSuccess) {
         sendNumbers()
       } else {
-        future.cause().printStackTrace()
+        future.cause.printStackTrace()
         future.channel.close()
       }
   }
