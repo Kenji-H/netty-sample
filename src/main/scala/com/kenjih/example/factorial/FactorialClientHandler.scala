@@ -17,7 +17,7 @@ class FactorialClientHandler extends SimpleChannelInboundHandler[BigInteger] {
   private var next: Int                  = 1
   private final val answer               = new LinkedBlockingQueue[BigInteger]()
 
-  def getFactorial(): BigInteger = {
+  def getFactorial: BigInteger = {
     answer.take()
   }
 
