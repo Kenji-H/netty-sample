@@ -62,13 +62,13 @@ class FactorialClientHandler extends SimpleChannelInboundHandler[BigInteger] {
   }
 
   private final val numberSender = new ChannelFutureListener {
-    override def operationComplete(future: ChannelFuture): Unit = future.isSuccess() match {
-      case true => sendNumbers()
-      case _ => {
+    override def operationComplete(future: ChannelFuture): Unit =
+      if (future.isSuccess) {
+        sendNumbers()
+      } else {
         future.cause().printStackTrace()
         future.channel.close()
       }
-    }
   }
 
 }
