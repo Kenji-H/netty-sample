@@ -21,7 +21,7 @@ object EchoServer {
         .option(ChannelOption.SO_BACKLOG, Int.box(100))
         .handler(new LoggingHandler(LogLevel.INFO))
         .childHandler(new ChannelInitializer[SocketChannel] {
-          override def initChannel(ch: SocketChannel) = {
+          override def initChannel(ch: SocketChannel): Unit = {
             val p = ch.pipeline
             p.addLast(new EchoServerHandler())
           }

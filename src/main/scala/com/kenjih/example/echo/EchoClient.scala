@@ -19,7 +19,7 @@ object EchoClient {
         .channel(classOf[NioSocketChannel])
         .option(ChannelOption.TCP_NODELAY, Boolean.box(true))
         .handler(new ChannelInitializer[SocketChannel] {
-          override def initChannel(ch: SocketChannel) = {
+          override def initChannel(ch: SocketChannel): Unit = {
             val p = ch.pipeline
             p.addLast(new EchoClientHandler())
           }

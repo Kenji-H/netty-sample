@@ -13,7 +13,7 @@ class DiscardClientHandler extends SimpleChannelInboundHandler[Any] {
   private var ctx: ChannelHandlerContext = _
   private var counter: Long              = _
 
-  override def channelActive(ctx: ChannelHandlerContext) = {
+  override def channelActive(ctx: ChannelHandlerContext): Unit = {
     this.ctx = ctx
     content = ctx.alloc().directBuffer(DiscardClient.SIZE).writeZero(DiscardClient.SIZE)
     generateTraffic()
