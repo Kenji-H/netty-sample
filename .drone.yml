@@ -3,15 +3,15 @@ pipeline:
   format:
     image: openjdk
     commands:
-      - wget https://downloads.lightbend.com/scala/2.12.2/scala-2.12.2.deb
-      - dpkg -i scala-2.12.2.deb
+      - curl -L -o sbt-1.0.2.deb https://dl.bintray.com/sbt/debian/sbt-1.0.2.deb
+      - dpkg -i sbt-1.0.2.deb
       - sbt scalafmtTest
 
   test:
     image: openjdk
     commands:
-      - wget https://downloads.lightbend.com/scala/2.12.2/scala-2.12.2.deb
-      - dpkg -i scala-2.12.2.deb
+      - curl -L -o sbt-1.0.2.deb https://dl.bintray.com/sbt/debian/sbt-1.0.2.deb
+      - dpkg -i sbt-1.0.2.deb
       - sbt test
 
   slack:
