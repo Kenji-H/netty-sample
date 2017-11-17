@@ -1,12 +1,18 @@
 pipeline:
 
   format:
-    image: hseeberger/scala-sbt:8u141-jdk_2.12.3_1.0.2
-    commands: sbt scalafmtTest
+    image: openjdk
+    commands:
+      - wget https://downloads.lightbend.com/scala/2.12.2/scala-2.12.2.deb
+      - dpkg -i scala-2.12.2.deb
+      - sbt scalafmtTest
 
   test:
-    image: hseeberger/scala-sbt:8u141-jdk_2.12.3_1.0.2
-    commands: sbt test
+    image: openjdk
+    commands:
+      - wget https://downloads.lightbend.com/scala/2.12.2/scala-2.12.2.deb
+      - dpkg -i scala-2.12.2.deb
+      - sbt test
 
   slack:
     image: plugins/slack
