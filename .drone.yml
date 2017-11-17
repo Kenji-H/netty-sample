@@ -1,18 +1,11 @@
 pipeline:
 
-  format:
-    image: openjdk
-    commands:
-      - curl -L -o sbt-1.0.2.deb https://dl.bintray.com/sbt/debian/sbt-1.0.2.deb
-      - dpkg -i sbt-1.0.2.deb
-      - sbt scalafmtTest
-
   test:
     image: openjdk
     commands:
       - curl -L -o sbt-1.0.2.deb https://dl.bintray.com/sbt/debian/sbt-1.0.2.deb
       - dpkg -i sbt-1.0.2.deb
-      - sbt test
+      - sbt scalafmtTest test
 
   slack:
     image: plugins/slack
